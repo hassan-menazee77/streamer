@@ -11,5 +11,16 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Disable the component tagger which adds "lovable" branding in dev mode
+    componentTagger: false,
+    // Configure Nitro for static site generation (SSG) for GitHub Pages
+    nitro: {
+      preset: "static",
+    },
+  },
+  vite: {
+    // Set the base path for GitHub Pages.
+    // Replace 'streamer-organized' with your repository name if it's different.
+    base: "/streamer-organized/",
   },
 });
